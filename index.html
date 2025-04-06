@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VirtuStyle - 3D Try-On Experience</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    header h2 {
+      color: #fff;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    video.bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .content {
+      max-width: 800px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #ffcc70;
+    }
+    .cta-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #ffcc70;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>VirtuStyle</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="about.html">About Us</a>
+      <a href="signin.html">Sign In</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="video1.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h1>VirtuStyle: Revolutionizing Fashion Shopping</h1>
+      <p>In the traditional shopping experience, both online and offline, customers often face challenges in determining how clothes will fit and look on them without physically trying them on.</p>
+      <h3>Problem in Fashion Industry</h3>
+      <h3>Customer Frustration</h3>
+      <a href="signin.html"><button class="cta-button">Try Demo</button></a>
+    </div>
+  </section>
+
+  <section id="features">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="video2.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h1>Our Solution: Virtual Try-On App</h1>
+      <p>The solution is a 3D try-on application that uses advanced technologies like AR, 3D body scanning, and AI to enable users to virtually try on clothes.</p>
+      <h3>Augmented Reality</h3>
+      <h3>3D Body Scanning</h3>
+      <h3>AI-Powered Fitting</h3>
+    </div>
+  </section>
+
+  <section>
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="video3.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h1>Enhanced Shopping Experience</h1>
+      <p>The app provides a realistic visualization of fit, style, and color on the user's body in real-time. This enhances the shopping experience by reducing returns, saving time, and improving customer confidence.</p>
+      <h3>Realistic Fit & Look</h3>
+      <h3>Reduce Returns</h3>
+      <h3>Build Confidence</h3>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 VirtuStyle. All rights reserved.</p>
+    <p>Follow us: 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+</html>
