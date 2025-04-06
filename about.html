@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - VirtuStyle</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f9f6f2, #fff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3rem 2rem;
+    }
+    .member {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    .member:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .info {
+      flex: 1;
+      padding: 1rem 2rem;
+    }
+    .info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+    .info p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .photo {
+      flex: 1;
+      text-align: center;
+    }
+    .photo img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    @media (max-width: 768px) {
+      .member {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      .photo {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meet Our Team</h1>
+  </header>
+
+  <div class="container">
+    <div class="member">
+      <div class="info">
+        <h2>ABDUS SAMI</h2>
+        <p>Project Coordination & Frontend Developer</p>
+      </div>
+      <div class="photo">
+        <img src="member1.jpg" alt="Member 1 Photo">
+      </div>
+    </div>
+
+    <div class="member">
+      <div class="info">
+        <h2>NAVEEN</h2>
+        <p>UI/UX Designer & AR Integration</p>
+      </div>
+      <div class="photo">
+        <img src="member2.jpg" alt="Member 2 Photo">
+      </div>
+    </div>
+
+    <div class="member">
+      <div class="info">
+        <h2>SIVA MANI</h2>
+        <p>Backend & Database Management</p>
+      </div>
+      <div class="photo">
+        <img src="member3.jpg" alt="Member 3 Photo">
+      </div>
+    </div>
+
+    <div class="member">
+      <div class="info">
+        <h2>TANMAY</h2>
+        <p>AI & 3D Modeling Specialist</p>
+      </div>
+      <div class="photo">
+        <img src="member4.jpg" alt="Member 4 Photo">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
