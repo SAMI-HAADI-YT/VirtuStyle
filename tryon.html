@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f4ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .upload-area:hover {
+            border-color: #66b3ff;
+        }
+        .upload-area i {
+            font-size: 50px;
+            color: #66b3ff;
+        }
+        .upload-area a {
+            color: #66b3ff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .upload-area input {
+            display: none;
+        }
+        .btn {
+            background-color: #66b3ff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #5599ff;
+        }
+        #previewImage {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+        #countdown, #loadingBar {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            color: green;
+        }
+        #loadingBar {
+            height: 10px;
+            background-color: lightgray;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+        }
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background-color: #28a745;
+            transition: width 1s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Upload your File:</h2>
+        <div class="upload-area">
+            <i class="fas fa-upload"></i>
+            <p>Drag & Drop<br>or <a id="browseLink">browse</a></p>
+            <input type="file" id="fileInput" accept="image/jpeg, image/png, image/jpg">
+            <small>Supports: JPEG, JPG, PNG</small>
+        </div>
+
+        <img id="previewImage" alt="Preview">
+        <button class="btn" id="convertBtn" style="display: none;">Convert</button>
+        <div id="countdown"></div>
+        <div id="loadingBar"><div id="progressBar"></div></div>
+        <button class="btn" id="tryOnBtn" style="display: none;">Try On</button>
+    </div>
+
+    <script>
+        const browseLink = document.getElementById('browseLink');
+        const fileInput = document.getElementById('fileInput');
+        const previewImage = document.getElementById('previewImage');
+        const convertBtn = document.getElementById('convertBtn');
+        const countdown = document.getElementById('countdown');
+        const loadingBar = document.getElementById('loadingBar');
+        const progressBar = document.getElementById('progressBar');
+        const tryOnBtn = document.getElementById('tryOnBtn');
+
+        browseLink.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                    convertBtn.style.display = 'inline-block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        convertBtn.addEventListener('click', () => {
+            convertBtn.style.display = 'none';
+            countdown.textContent = "Please wait...";
+            let count = 5;
+
+            const interval = setInterval(() => {
+                countdown.textContent = `Converting in ${count}...`;
+                count--;
+
+                if (count < 0) {
+                    clearInterval(interval);
+                    countdown.style.display = 'none';
+                    loadingBar.style.display = 'block';
+                    progressBar.style.width = '0%';
+
+                    // Animate loading bar
+                    let progress = 0;
+                    const load = setInterval(() => {
+                        progress += 20;
+                        progressBar.style.width = `${progress}%`;
+
+                        if (progress >= 100) {
+                            clearInterval(load);
+                            tryOnBtn.style.display = 'inline-block';
+                        }
+                    }, 500);
+                }
+            }, 1000);
+        });
+
+        tryOnBtn.addEventListener('click', () => {
+            window.location.href = "newnonzoom.html";
+        });
+    </script>
+
+</body>
+</html>
